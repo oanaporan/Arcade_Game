@@ -16,6 +16,19 @@ class Enemy {
 };
 
 
+class Player {
+    constructor(x, y, move) {
+        this.x = x;
+        this.y = y;
+        this.move = move;
+        this.sprite = 'images/char-horn-girl.png';
+    }
+
+}
+
+
+
+
 
 
 const Enemy = function() {
