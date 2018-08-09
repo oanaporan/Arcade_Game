@@ -1,5 +1,24 @@
 // Enemies our player must avoid
-var Enemy = function() {
+class Enemy {
+    constructor (x, y, speed) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.sprite = 'images/enemy-bug.png';
+    }
+    update(dt) {
+        
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
+};
+
+
+
+
+const Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
