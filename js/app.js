@@ -10,11 +10,14 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+        //Multiplies the enemy speed with the dt parameter which ensures the game runs at the same speed for all computers.
         this.x += this.speed * dt;
-          // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-        
+        if (this.x > 505) {
+            this.x = -50;
+            this.speed = 120 + Math.floor(Math.random()* 200);
+        }
+
+
     }
     // Draw the enemy on screen
     render() {
@@ -30,20 +33,19 @@ let enemyLocations = [63, 146, 230].forEach(enemyLocation => {
 
 // Player 
 class Player {
-    constructor(x, y) {
+    constructor (x, y) {
         this.x = x;
         this.y = y;
         this.sprite = 'images/char-boy.png';
     };
     update(dt) {
-        //if player get to the top of the board reinitialize its location
-        if (this.y < 0) {
+        //if player gets to the top of the board reinitialize its location
+        if (this.y < 0)  {
             setTimeout(() => {
             player.x = 202;
             player.y = 404;
         }, 600);
         }
-
     };
     // Draw the player on screen
     render() {
@@ -65,15 +67,13 @@ class Player {
             this.y += 83;
         };
         
-       
     }
 };
-//Initialize the player and it's location on board, x=202, y=404;
+
+//Initialize the player and it's location on board.
 const player = new Player(202, 404);
 
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses and sends the keys to Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
