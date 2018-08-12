@@ -4,7 +4,8 @@ class Enemy {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.sprite = 'images/enemy-bug.png';// The image/sprite for our enemies, this uses a helper provided to easily load images
+        // The image/sprite for our enemies, this uses a helper provided to easily load images
+        this.sprite = 'images/enemy-bug.png';
     }
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
@@ -48,12 +49,25 @@ class Player {
     render() {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-
+    //Allows the player to move across the board using the keysAllowed variable
+    //and enables the player to move off board
     handleInput(keyPress) {
+        if (keyPress == 'left' && this.x > 0) {
+            this.x -= 101;
+        };
+        if (keyPress == 'right'&& this.x < 404) {
+            this.x += 101;
+        };
+        if (keyPress == 'up' && this.y > 0) {
+            this.y -= 83;
+        };
+        if (keyPress == 'down' && this.y < 404) {
+            this.y += 83;
+        };
        
     }
 };
-
+//Initialize the player and it's location on board, x=202, y=404;
 const player = new Player(202, 404);
 
 
