@@ -12,22 +12,27 @@ class Enemy {
     update(dt) {
         //Multiplies the enemy speed with the dt parameter which ensures the game runs at the same speed for all computers.
         this.x += this.speed * dt;
+        //Once the enemies dissapear off board, reapper with random speed each. 
         if (this.x > 505) {
             this.x = -50;
             this.speed = 120 + Math.floor(Math.random()* 200);
         }
+        //Check for collision with player.
+        if (player.x < this.x + 80 && player.y < this.y + 60) {
+            player.x = 202;
+            player.y = 405;
+        };
+    };
 
-
-    }
     // Draw the enemy on screen
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+}
 
-};
 let allEnemies = [];
 let enemyLocations = [63, 146, 230].forEach(enemyLocation => {
-    const enemy = new Enemy (0, enemyLocation, 140);
+    const enemy = new Enemy (0, enemyLocation, 160);
     allEnemies.push(enemy);
 });
 
