@@ -1,13 +1,10 @@
 // Enemies the player must avoid
 class Enemy { 
-    constructor (x, y, speed, allEnemies = []) {
+    constructor (x, y, speed) {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.allEnemies = allEnemies;
-    // The image/sprite for our enemies, this uses
-    // a helper provided to easily load images
-        this.sprite = 'images/enemy-bug.png';
+        this.sprite = 'images/enemy-bug.png';// The image/sprite for our enemies, this uses a helper provided to easily load images
     }
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
@@ -27,6 +24,7 @@ class Enemy {
 };
 
 const enemies = new Enemy();
+let allEnemies = [];
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -50,11 +48,8 @@ class Player {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-
-    }
-    handleInput() {
-
-
+    handleInput(keyPress) {
+       
     }
 };
 
