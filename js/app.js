@@ -10,9 +10,7 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        x =+ speed * dt;
-
-
+        this.x += this.speed * dt;
           // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -24,9 +22,13 @@ class Enemy {
     }
 
 };
-
-let enemy = new Enemy();
 let allEnemies = [];
+let enemyLocations = [63, 146, 230].forEach(enemyLocation => {
+    const enemy = new Enemy (0, enemyLocation, 140);
+    allEnemies.push(enemy);
+});
+
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -55,7 +57,7 @@ class Player {
         if (keyPress == 'left' && this.x > 0) {
             this.x -= 101;
         };
-        if (keyPress == 'right'&& this.x < 404) {
+        if (keyPress == 'right' && this.x < 404) {
             this.x += 101;
         };
         if (keyPress == 'up' && this.y > 0) {
@@ -64,7 +66,7 @@ class Player {
         if (keyPress == 'down' && this.y < 404) {
             this.y += 83;
         };
-        //if player get to the top of the board reinitialise its location
+        //if player get to the top of the board reinitialize its location
         if (this.y < 0) {
             setTimeout(() => {
             player.x = 202;
