@@ -64,6 +64,13 @@ class Player {
         if (keyPress == 'down' && this.y < 404) {
             this.y += 83;
         };
+        //if player get to the top of the board reinitialise its location
+        if (this.y < 0) {
+            setTimeout(() => {
+            player.x = 202;
+            player.y = 404;
+        }, 600);
+        }
        
     }
 };
