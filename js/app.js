@@ -12,7 +12,7 @@ class Enemy {
     update(dt) {
         //Multiplies the enemy speed with the dt parameter which ensures the game runs at the same speed for all computers.
         this.x += this.speed * dt;
-        //Once the enemies dissapear off board, reapper with random speed each. 
+        //Once the enemies dissapear off board, reappear with random speed each. 
         if (this.x > 505) {
             this.x = -50;
             this.speed = 120 + Math.floor(Math.random()* 200);
@@ -30,6 +30,7 @@ class Enemy {
     }
 }
 
+//Initialize an empty array for all enemies on board.
 let allEnemies = [];
 let enemyLocations = [63, 146, 230].forEach(enemyLocation => {
     const enemy = new Enemy (0, enemyLocation, 160);
@@ -70,8 +71,7 @@ class Player {
         };
         if (keyPress == 'down' && this.y < 404) {
             this.y += 83;
-        };
-        
+        }; 
     }
 };
 
