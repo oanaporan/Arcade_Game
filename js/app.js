@@ -9,6 +9,7 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+        x =+ speed * dt;
 
 
           // You should multiply any movement by the dt parameter
@@ -23,7 +24,7 @@ class Enemy {
 
 };
 
-const enemies = new Enemy();
+let enemy = new Enemy();
 let allEnemies = [];
 // Now write your own player class
 // This class requires an update(), render() and
@@ -53,7 +54,7 @@ class Player {
     }
 };
 
-const player = new Player();
+const player = new Player(202, 404);
 
 
 // This listens for key presses and sends the keys to your
