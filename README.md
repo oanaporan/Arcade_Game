@@ -1,6 +1,28 @@
-frontend-nanodegree-arcade-game
-===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+# FEND Udacidy - Classic Arcade Game Project 
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+##### Project scope - code
+* OOP JavaScript - Game objects (player and vehicles) are implemented using JavaScript object-oriented programming features,
+* HTML5 canvas. 
+* Font-awesome and Google fonts used: 'Handless'.
+
+Game functions correctly and runs error free:
+
+1. Player can not move off screen,
+2. Bugs cross the screen,
+3. Bugs-player collisions happen logically (not too early or too late),
+4. Bugs-player collision resets the game,
+5. Bugs-player collision decreases the lifes score,
+6. When player get to the top of the gameboard, wins and lifes score increases. 
+
+##### How to play arcade game?
+Move the player using the arrowKeys on your keyboard across the gameboard, try to get to the river (top row) by avoiding the bugs.
+Colliding with th bugs decreases the lifes score, and reaching the top row increases the lifes score.   
+
+## Preview
+![snippet](images/snippet.png)
+
+## Installation
+1. Download the folders and files to your computer.
+2. Open the index.html file in your browser. 
+
