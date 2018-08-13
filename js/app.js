@@ -88,7 +88,7 @@ class Player {
 
 //Initialize the player and it's location on board.
 const player = new Player(202, 404);
-let lifes = 0;
+let lifes = 3;
 
 // This listens for key presses and sends the keys to Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
