@@ -18,9 +18,13 @@ class Enemy {
             this.speed = 120 + Math.floor(Math.random()* 200);
         }
         //Check for collision with player.
-        if (player.x < this.x + 80 && player.y < this.y + 60) {
+        if (player.x < this.x + 80 &&
+            player.x + 80 > this.x &&
+            player.y < this.y + 60 &&
+            60 + player.y > this.y) {
             player.x = 202;
-            player.y = 405;
+            player.y = 404;
+            lifes--;
         };
     };
 
@@ -49,13 +53,16 @@ class Player {
         if (this.y < 0)  {
             setTimeout(() => {
             player.x = 202;
-            player.y = 404;
+            player.y = 404; 
         }, 600);
         }
     };
     // Draw the player on screen
     render() {
             ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+            ctx.font = "30px Handlee";
+            ctx.fillText(`Lifes: ${lifes}`, 10, 40);
+
     }
     //Allows the player to move across the board using the keysAllowed variable
     //and enables the player to move off board
@@ -72,11 +79,16 @@ class Player {
         if (keyPress == 'down' && this.y < 404) {
             this.y += 83;
         }; 
+        //if player get to the top of the board increase +1 lifes
+        if (this.y < 0) {
+            lifes++;
+        }
     }
 };
 
 //Initialize the player and it's location on board.
 const player = new Player(202, 404);
+let lifes = 0;
 
 // This listens for key presses and sends the keys to Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
