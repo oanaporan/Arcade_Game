@@ -1,3 +1,4 @@
+'use strict';
 // Enemies the player must avoid
 class Enemy { 
     constructor (x, y, speed) {
@@ -29,7 +30,7 @@ class Enemy {
     };
 
     // Draw the enemy on screen
-    render() {
+        render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
@@ -49,13 +50,18 @@ class Player {
         this.sprite = 'images/char-boy.png';
     };
     update(dt) {
-        //if player gets to the top of the board reinitialize its location
-        if (this.y < 0)  {
-            setTimeout(() => {
+        //Increse lifes if player gets to the top of the board (river)
+        if (this.y < 0) {
+            let a = this.y - 83;
+            this.y = a > 0 ? a : 0;
+            lifes ++;
+        //And reinitialize its location
+         setTimeout(() => {
             player.x = 202;
             player.y = 404; 
-        }, 600);
-        }
+        }, 500);
+    }
+        
     };
     // Draw the player on screen
     render() {
@@ -68,9 +74,9 @@ class Player {
     //and enables the player to move off board
     handleInput(keyPress) {
         if (keyPress == 'left' && this.x > 0) {
-            this.x -= 101;
-        };
-        if (keyPress == 'right' && this.x < 404) {
+           this.x -= 101;
+       };
+       if (keyPress == 'right' && this.x < 404) {
             this.x += 101;
         };
         if (keyPress == 'up' && this.y > 0) {
@@ -79,20 +85,19 @@ class Player {
         if (keyPress == 'down' && this.y < 404) {
             this.y += 83;
         }; 
-        //if player get to the top of the board increase +1 lifes
-        if (this.y < 0) {
-            lifes++;
-        }
     }
 };
+
+
 
 //Initialize the player and it's location on board.
 const player = new Player(202, 404);
 let lifes = 3;
 
+
 // This listens for key presses and sends the keys to Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    let allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
